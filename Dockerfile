@@ -1,7 +1,7 @@
 FROM python:3.7-slim-stretch
 
 RUN apt-get update && apt-get install -y git python3-dev gcc \
-    && rm -rf /var/lib/apt/lists/*  && pip install libglib2.0-0
+    && rm -rf /var/lib/apt/lists/*  && pip install libglib2.0-0:i386
 
 
 COPY requirements.txt .
