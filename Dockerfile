@@ -1,7 +1,7 @@
 FROM python:3.7-slim-stretch
 
 RUN apt-get update && apt-get install -y git python3-dev gcc \
-    && rm -rf /var/lib/apt/lists/*  && pip install opencv-contrib-python-headless
+    && rm -rf /var/lib/apt/lists/*  && pip install libgtk2.0-dev
 
 
 COPY requirements.txt .
