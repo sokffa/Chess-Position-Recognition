@@ -86,7 +86,7 @@ def angle_cos(p0, p1, p2):
     return abs( np.dot(d1, d2) / np.sqrt( np.dot(d1, d1)*np.dot(d2, d2) ) )
 
 def find_squares(image):
-    img = cv2.GaussianBlur(img, (5, 5), 0)
+    img = cv2.GaussianBlur(image, (5, 5), 0)
     
     squares = []
     for gray in cv2.split(img):
@@ -108,11 +108,9 @@ def find_squares(image):
                     if max_cos < 0.1:
                         squares.append(cnt)
     squares_arr = []
-    for fn in glob(image):
-        img = cv2.imread(fn)
-        for c in squares:
-            x,y,w,h = cv2.boundingRect(c)
-            squares_arr.append(img[y:y+h, x:x+h])
+    for c in squares:
+        x,y,w,h = cv2.boundingRect(c)
+        squares_arr.append(image[y:y+h, x:x+h])
     return squares_arr;
 
 
