@@ -16,6 +16,20 @@ function showPicked(input) {
 
 function analyze() {
   var uploadFiles = el("file-input").files;
+  var board_orientation = document.getElementsByName("board_orientation");
+  for (var i = 0, length = board_orientation.length; i < length; i++) {
+  if (board_orientation[i].checked) {
+    board_orientation = board_orientation[i].value;
+    break;
+  }
+  }
+  var movesNext = document.getElementsByName("movesNext");
+  for (var i = 0, length = movesNext.length; i < length; i++) {
+  if (movesNext[i].checked) {
+    movesNext = movesNext[i].value;
+    break;
+  }}
+
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
   el("analyze-button").innerHTML = "Analyzing...";
@@ -36,6 +50,8 @@ function analyze() {
 
   var fileData = new FormData();
   fileData.append("file", uploadFiles[0]);
+  fileData.append("board_orientation" , board_orientation);
+  fileData.append("movesNext" , movesNext);
   xhr.send(fileData);
 }
 
