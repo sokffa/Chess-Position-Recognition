@@ -76,7 +76,9 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = BytesIO(img_bytes)
     img = cv2.imdecode(np.frombuffer(img.read(), np.uint8), 1)
-    fen = getPosition(img,movesNext.get(),board_orientation=selected.get())
+    board_orientation = img_data['board_orientation']
+    movesNext = img_data['movesNext']
+    fen = getPosition(img,movesNext,board_orientation)
     return JSONResponse({'result': str(fen)})
 
 def angle_cos(p0, p1, p2):
