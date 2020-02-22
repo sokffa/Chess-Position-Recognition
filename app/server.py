@@ -1,3 +1,4 @@
+from __future__ import print_function
 import aiohttp
 import asyncio
 import uvicorn
@@ -8,7 +9,6 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
-from __future__ import print_function
 from glob import glob
 import sys
 import webbrowser
@@ -28,7 +28,6 @@ export_detection_name = 'chessboard_detection.pkl'
 export_recognition_url = 'https://drive.google.com/u/0/uc?id=14UX6--3Y2ufkRvWAhPY_4VN3d1eqG_8c'
 export_recognition_name = 'chessboard_recognition.pkl'
 
-#classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
 
 app = Starlette()
