@@ -27,7 +27,22 @@
       <div>
         <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
       </div>
+
       <div class='analyze'>
+	  <label>Moves Next :</label>
+	  
+		<input type = "radio" name="movesNext" value = "white">
+		<label for="white">White</label>
+		<input type = "radio" name="movesNext" value = "black">
+		<label for="black">Black</label><br>
+		
+		<label>Chessboard Orientation :</label>
+		<input type = "radio" name="board_orientation" value = "auto_detect">
+		<label for="auto_detect">Auto Detect</label>
+		<input type = "radio" name="board_orientation" value = "white">
+		<label for="white">White</label>
+		<input type = "radio" name="board_orientation" value = "black">
+		<label for="black">Black</label><br><br>
         <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
       </div>
       <div class='result-label'>
