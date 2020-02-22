@@ -78,8 +78,7 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = BytesIO(img_bytes)
-    file_bytes = np.asarray(bytearray(img.read()), dtype=np.uint8)
-    img = cv2.imdecode(file_bytes, cv.IMREAD_COLOR)
+    img = cv2.imdecode(np.frombuffer(img.read(), np.uint8), 1)
     fen = getPosition(img,movesNext.get(),board_orientation=selected.get())
     return JSONResponse({'result': str(fen)})
 
