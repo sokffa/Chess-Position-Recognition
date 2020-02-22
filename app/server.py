@@ -12,7 +12,6 @@ from starlette.staticfiles import StaticFiles
 from glob import glob
 import sys
 import webbrowser
-from PIL import ImageTk, Image
 PY3 = sys.version_info[0] == 3
 
 if PY3:
